@@ -46,7 +46,7 @@ def index():
      
     return jsonify({'dataset': 'smart-house analysis'})
 
-
+#create product
 @app.route('/product', methods=['POST'])
 def add_product():
     
@@ -63,7 +63,6 @@ def add_product():
     return product_schema.jsonify(new_product)
 
 #get all products
-
 @app.route('/product', methods=['GET'])
 def get_products():
     
@@ -71,6 +70,43 @@ def get_products():
     result = products_schema.dump(all_products)
    
     return jsonify(result)
+
+#get single product
+@app.route('/product/<id>', methods=['GET'])
+def get_product(id):
+    
+    product = Product.query.get(id)
+    return product_schema.jsonify(product)
+
+#update product
+@app.route('/product/<id>', methods=['PUT'])
+def update_product(id):
+    
+    product = Product.query.get(id)
+
+    name = request.json['name']
+    description = request.json['description']
+    price = request.json['price']
+    qty = request.json['qty']
+
+
+    product.name = name
+    product.description = description
+    product.price = price
+    product.qty = qty
+
+    db.session.commit()
+   
+    return product_schema.jsonify(product)
+
+#delete product
+@app.route('/product/<id>', methods=['DELETE'])
+def delete_product(id):
+    
+    product = Product.query.get(id)
+    db.session.delete(product)
+    db.session.commit()
+    return product_schema.jsonify(product)
 
 # run server 
 if __name__ == "__main__":
