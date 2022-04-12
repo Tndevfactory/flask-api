@@ -108,6 +108,14 @@ def delete_product(id):
     db.session.commit()
     return product_schema.jsonify(product)
 
+#search product by name
+@app.route('/search/<q>', methods=['GET'])
+def search_products(q):
+    
+    all_products = Product.query.filter(Product.name.like('%'+q+'%')).all()
+    result = products_schema.dump(all_products)
+    return jsonify(result)
+
 # run server 
 if __name__ == "__main__":
     # db.create_all()
