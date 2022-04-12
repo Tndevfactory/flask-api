@@ -30,4 +30,8 @@ md flask
   # debug heroku 
   heroku run printenv
   heroku restart
+-------------------
+monitor app heroku
+heroku logs --source app --tail
 
+--------------------

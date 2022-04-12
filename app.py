@@ -40,7 +40,13 @@ class ProductSchema(ma.Schema):
 product_schema = ProductSchema()
 products_schema = ProductSchema(many=True)
 
-#create product
+#Fpp 
+@app.route('/', methods=['GET'])
+def index():
+     
+    return jsonify({'dataset': 'smart-house analysis'})
+
+
 @app.route('/product', methods=['POST'])
 def add_product():
     
