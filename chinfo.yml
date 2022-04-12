@@ -1,0 +1,33 @@
+md flask
+ exec bash  #
+ pip3 install virtualenv  #  install virtual env
+ virtualenv venv  #  creation 
+ source venv/bin/activate  # activation
+ pip3 install flask flask-sqlalchemy # install flask and sql orm
+ touch app.py #
+ python3 app.py # run localhost http://127.0.0.1:5000 
+ pip3 freeze > requirements.txt # last command before upload to heroku  copy requirements.txt
+ #interactive shell
+ python3
+ from app import db 
+ db.create_create()
+
+ #heroku upload
+ make you sure you are under venv environement
+ 
+ heroku login 
+ git init 
+ pip3 install gunicorn
+ pip3 freeze > requirements.txt
+ touch Procfile # inside Procfile
+  web: gunicorn app:app
+
+
+  heroku create flaskappcrudtn
+  git remote -v
+  git push heroku master
+  
+  # debug heroku 
+  heroku run printenv
+  heroku restart
+

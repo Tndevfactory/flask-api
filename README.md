@@ -1,4 +1,5 @@
 # flask
 
-https://flaskappcrudtn.herokuapp.com/
+https://flask-api-ch.herokuapp.com/
+
 # flask-api
