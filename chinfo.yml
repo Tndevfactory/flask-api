@@ -3,6 +3,7 @@ md flask
  pip3 install virtualenv  #  install virtual env
  virtualenv venv  #  creation 
  source venv/bin/activate  # activation
+ 
  pip3 install flask flask-sqlalchemy # install flask and sql orm
  touch app.py #
  python3 app.py # run localhost http://127.0.0.1:5000 
@@ -35,3 +36,7 @@ monitor app heroku
 heroku logs --source app --tail
 
 --------------------
+
+import uuid
+uuid.uuid4()
+UUID('a1e6471e-5b4f-4b25-b1a0-c3880b33601e')
