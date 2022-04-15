@@ -40,3 +40,7 @@ heroku logs --source app --tail
 import uuid
 uuid.uuid4()
 UUID('a1e6471e-5b4f-4b25-b1a0-c3880b33601e')
+  
+  error pkg
+ (venv) pip uninstall pkg-resources==0.0.0
+  pip3 freeze > requirements.txt
